@@ -31,6 +31,8 @@
 		0E0C195132DC1C7A66439365 /* UIBarButtonItemGrid.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E6AB667A9F97773781EEC1B /* UIBarButtonItemGrid.png */; };
 		0E5319CAEC05F6A6331CB6DB /* EXPMatchers+beKindOf.m in Sources */ = {isa = PBXBuildFile; fileRef = A514ACADDA62CEC1FEE797E4 /* EXPMatchers+beKindOf.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0E97A59FFC4E0E735CF3A6E0 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA05E6C44CAD0F052C7C927 /* UIImageView+HighlightedWebCache.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		10303C921C48D26800E4854C /* nav_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10303C911C48D26800E4854C /* nav_back@2x.png */; };
+		10303C931C48D26800E4854C /* nav_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10303C911C48D26800E4854C /* nav_back@2x.png */; };
 		117D9EF68E0576CD4612E50C /* SDWebImageDownloaderOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE9DA9D027B3EF5E741C49 /* SDWebImageDownloaderOperation.h */; };
 		123658CC745BF1FA07C16861 /* EXPMatchers+raiseWithReason.h in Headers */ = {isa = PBXBuildFile; fileRef = E3AE38451FD57D39E666EE95 /* EXPMatchers+raiseWithReason.h */; };
 		12788FCD5E5196482EF476E4 /* UIBarButtonItemArrowRight@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1F61F563D45757DB78EF444 /* UIBarButtonItemArrowRight@3x.png */; };
@@ -522,6 +524,7 @@
 		0EB5759ABD2699E304472930 /* EXPMatchers+beLessThanOrEqualTo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beLessThanOrEqualTo.m"; path = "Expecta/Matchers/EXPMatchers+beLessThanOrEqualTo.m"; sourceTree = "<group>"; };
 		0EDEC1C75BDD9E73E9B14525 /* MWPhotoBrowser.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MWPhotoBrowser.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F49A2D5C747DE9C3C8D1154 /* MWGridCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MWGridCell.m; sourceTree = "<group>"; };
+		10303C911C48D26800E4854C /* nav_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_back@2x.png"; sourceTree = "<group>"; };
 		10B26C8882F60266BE8861AF /* SpectaDSL.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SpectaDSL.m; path = Specta/Specta/SpectaDSL.m; sourceTree = "<group>"; };
 		121EA0DBAF86B9AFF28CEC49 /* EXPMatchers+FBSnapshotTest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EXPMatchers+FBSnapshotTest.h"; sourceTree = "<group>"; };
 		142A073CC5E168D13BF30BF6 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/AssetsLibrary.framework; sourceTree = DEVELOPER_DIR; };
@@ -939,6 +942,7 @@
 		013087363C50C484AD94A9FF /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				10303C911C48D26800E4854C /* nav_back@2x.png */,
 				AC75B08BE5BD68DA62B508AB /* ImageError.png */,
 				7FF97CACFA1943A65EE940DD /* ImageError@2x.png */,
 				6B037E45084EAB59B01EF471 /* ImageError@3x.png */,
@@ -2046,6 +2050,7 @@
 				CCB2B8698A056BA89269EB9F /* PlayButtonOverlayLargeTap.png in Resources */,
 				2D263E46799C215C16B488ED /* PlayButtonOverlayLargeTap@2x.png in Resources */,
 				EA5EF58CE3205EE0468C959A /* PlayButtonOverlayLargeTap@3x.png in Resources */,
+				10303C931C48D26800E4854C /* nav_back@2x.png in Resources */,
 				46958824AFFA19FFA1ADDFDF /* UIBarButtonItemArrowLeft.png in Resources */,
 				D27FD7CD92B015DE45283EB7 /* UIBarButtonItemArrowLeft@2x.png in Resources */,
 				95AB26266F258AB996004B94 /* UIBarButtonItemArrowLeft@3x.png in Resources */,
@@ -2086,6 +2091,7 @@
 				95C5DBCDDE958100A07428D8 /* PlayButtonOverlayLargeTap.png in Resources */,
 				277840A8DE14ACC75A8E11F9 /* PlayButtonOverlayLargeTap@2x.png in Resources */,
 				D86C2349745BEE6938590CF4 /* PlayButtonOverlayLargeTap@3x.png in Resources */,
+				10303C921C48D26800E4854C /* nav_back@2x.png in Resources */,
 				8807F80C33B4A5F57150BB15 /* UIBarButtonItemArrowLeft.png in Resources */,
 				017E514ACDE3AD55F8F3AB03 /* UIBarButtonItemArrowLeft@2x.png in Resources */,
 				24648E867E180689B6F84CAC /* UIBarButtonItemArrowLeft@3x.png in Resources */,

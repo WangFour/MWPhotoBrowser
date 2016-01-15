@@ -204,18 +204,48 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     [_visiblePages removeAllObjects];
     [_recycledPages removeAllObjects];
     
+    
     // Navigation buttons
     if ([self.navigationController.viewControllers objectAtIndex:0] == self) {
         // We're first on stack so show done button
-        _doneButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Done", nil) style:UIBarButtonItemStylePlain target:self action:@selector(doneButtonPressed:)];
-        // Set appearance
-        [_doneButton setBackgroundImage:nil forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-        [_doneButton setBackgroundImage:nil forState:UIControlStateNormal barMetrics:UIBarMetricsLandscapePhone];
-        [_doneButton setBackgroundImage:nil forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-        [_doneButton setBackgroundImage:nil forState:UIControlStateHighlighted barMetrics:UIBarMetricsLandscapePhone];
-        [_doneButton setTitleTextAttributes:[NSDictionary dictionary] forState:UIControlStateNormal];
-        [_doneButton setTitleTextAttributes:[NSDictionary dictionary] forState:UIControlStateHighlighted];
-        self.navigationItem.rightBarButtonItem = _doneButton;
+        self.navigationItem.backBarButtonItem.enabled = NO;
+//        _doneButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"删除", nil) style:UIBarButtonItemStylePlain target:self action:@selector(doneButtonPressed:)];
+//        // Set appearance
+//        [_doneButton setBackgroundImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+//        [_doneButton setBackgroundImage:nil forState:UIControlStateNormal barMetrics:UIBarMetricsLandscapePhone];
+//        [_doneButton setBackgroundImage:nil forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+//        [_doneButton setBackgroundImage:nil forState:UIControlStateHighlighted barMetrics:UIBarMetricsLandscapePhone];
+//        [_doneButton setTitleTextAttributes:[NSDictionary dictionary] forState:UIControlStateNormal];
+//        [_doneButton setTitleTextAttributes:[NSDictionary dictionary] forState:UIControlStateHighlighted];
+//        self.navigationItem.rightBarButtonItem = _doneButton;
+        UIButton *deleteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//        [deleteBtn setImage:[UIImage imageForResourcePath:@"MWPhotoBrowser.bundle/ImageError" ofType:@"png" inBundle:[NSBundle bundleForClass:[self class]]]  forState:UIControlStateNormal];
+//        [deleteBtn setImage:[UIImage imageForResourcePath:@"MWPhotoBrowser.bundle/ImageError" ofType:@"png" inBundle:[NSBundle bundleForClass:[self class]]]  forState:UIControlStateHighlighted];
+        [deleteBtn setTitle:@"删除" forState:UIControlStateNormal];
+        [deleteBtn setTintColor:[UIColor whiteColor]];
+        deleteBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+        
+        deleteBtn.frame = CGRectMake(0, 0, 30, 40);
+        
+        [deleteBtn addTarget:self action:@selector(doneButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [deleteBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, -20)];
+        UIBarButtonItem *deleteitem = [[UIBarButtonItem alloc] initWithCustomView:deleteBtn];
+        self.navigationItem.rightBarButtonItem = deleteitem;
+
+#warning change1
+        
+        self.navigationItem.backBarButtonItem.enabled = NO;
+        UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [backBtn setImage:[UIImage imageForResourcePath:@"MWPhotoBrowser.bundle/ImageError" ofType:@"png" inBundle:[NSBundle bundleForClass:[self class]]]  forState:UIControlStateNormal];
+        [backBtn setImage:[UIImage imageForResourcePath:@"MWPhotoBrowser.bundle/ImageError" ofType:@"png" inBundle:[NSBundle bundleForClass:[self class]]]  forState:UIControlStateHighlighted];
+        
+        backBtn.frame = CGRectMake(0, 0, 30, 40);
+        
+        [backBtn addTarget:self action:@selector(backView) forControlEvents:UIControlEventTouchUpInside];
+        [backBtn setImageEdgeInsets:UIEdgeInsetsMake(0, -20, 0, 0)];
+        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+        self.navigationItem.leftBarButtonItem = item;
+
     } else {
         // We're not first so show back button
         UIViewController *previousViewController = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
@@ -1091,7 +1121,8 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
         if ([_delegate respondsToSelector:@selector(photoBrowser:titleForPhotoAtIndex:)]) {
             self.title = [_delegate photoBrowser:self titleForPhotoAtIndex:_currentPageIndex];
         } else {
-            self.title = [NSString stringWithFormat:@"%lu %@ %lu", (unsigned long)(_currentPageIndex+1), NSLocalizedString(@"of", @"Used in the context: 'Showing 1 of 3 items'"), (unsigned long)numberOfPhotos];
+#warning change
+            self.title = [NSString stringWithFormat:@"%lu %@ %lu", (unsigned long)(_currentPageIndex+1), NSLocalizedString(@"/", @"Used in the context: 'Showing 1 of 3 items'"), (unsigned long)numberOfPhotos];
         }
 	} else {
 		self.title = nil;
@@ -1540,9 +1571,10 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
             }
         }
         // Dismiss view controller
-        if ([_delegate respondsToSelector:@selector(photoBrowserDidFinishModalPresentation:)]) {
+        if ([_delegate respondsToSelector:@selector(photoBrowserDeletePhotoAtIndex:photoAtIndex:)]) {
             // Call delegate method and let them dismiss us
-            [_delegate photoBrowserDidFinishModalPresentation:self];
+            [_delegate photoBrowserDeletePhotoAtIndex:self photoAtIndex:_currentPageIndex];
+//            [self dismissViewControllerAnimated:YES completion:nil];
         } else  {
             [self dismissViewControllerAnimated:YES completion:nil];
         }
@@ -1637,6 +1669,11 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
         [self.progressHUD hide:YES];
     }
     self.navigationController.navigationBar.userInteractionEnabled = YES;
+}
+
+#warning change2
+- (void)backView {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
