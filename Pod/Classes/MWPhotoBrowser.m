@@ -1559,26 +1559,33 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 
 - (void)doneButtonPressed:(id)sender {
     // Only if we're modal and there's a done button
-    if (_doneButton) {
-        // See if we actually just want to show/hide grid
-        if (self.enableGrid) {
-            if (self.startOnGrid && !_gridController) {
-                [self showGrid:YES];
-                return;
-            } else if (!self.startOnGrid && _gridController) {
-                [self hideGrid];
-                return;
-            }
-        }
-        // Dismiss view controller
-        if ([_delegate respondsToSelector:@selector(photoBrowserDeletePhotoAtIndex:photoAtIndex:)]) {
-            // Call delegate method and let them dismiss us
-            [_delegate photoBrowserDeletePhotoAtIndex:self photoAtIndex:_currentPageIndex];
+//    if (_doneButton) {
+//        // See if we actually just want to show/hide grid
+//        if (self.enableGrid) {
+//            if (self.startOnGrid && !_gridController) {
+//                [self showGrid:YES];
+//                return;
+//            } else if (!self.startOnGrid && _gridController) {
+//                [self hideGrid];
+//                return;
+//            }
+//        }
+//        // Dismiss view controller
+//        if ([_delegate respondsToSelector:@selector(photoBrowserDeletePhotoAtIndex:photoAtIndex:)]) {
+//            // Call delegate method and let them dismiss us
+//            [_delegate photoBrowserDeletePhotoAtIndex:self photoAtIndex:_currentPageIndex];
+//        } else  {
 //            [self dismissViewControllerAnimated:YES completion:nil];
-        } else  {
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }
+//        }
+//    }
+    
+    if ([_delegate respondsToSelector:@selector(photoBrowserDeletePhotoAtIndex:photoAtIndex:)]) {
+        // Call delegate method and let them dismiss us
+        [_delegate photoBrowserDeletePhotoAtIndex:self photoAtIndex:_currentPageIndex];
+    } else  {
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
+
 }
 
 #pragma mark - Actions
