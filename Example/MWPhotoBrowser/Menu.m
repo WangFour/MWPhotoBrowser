@@ -1232,7 +1232,8 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)photoBrowserDelegatePhotoAtIndex:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
+
+-(void)photoBrowserDeletePhotoAtIndex:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index{
     if (_photos.count > 1) {
         [_photos removeObjectAtIndex:index];
         [photoBrowser reloadData];
@@ -1240,7 +1241,7 @@
         [_photos removeObjectAtIndex:index];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
-    
+
 }
 
 #pragma mark - Load Assets
